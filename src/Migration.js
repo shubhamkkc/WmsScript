@@ -54,14 +54,15 @@ function Migration() {
           const { rma, facilty } = result;
           return (
             <div key={index}>
+            <p>
+                {`delete from pending_returns_detail where Rma_nbr='${rma}' and
+                facility_id='${facilty}';`}
+              </p>
               <p>
                 {`delete from pending_returns where Rma_nbr='${rma}' and facility_id='${facilty}';
 `}
               </p>
-              <p>
-                {`delete from pending_returns_detail where Rma_nbr='${rma}' and
-                facility_id='${facilty}';`}
-              </p>
+              
               <p>
                 {` delete from rwms14.atg_pending_returns_detail_loc where Rma_nbr='${rma}' and facility_id='${facilty}';`}
               </p>
